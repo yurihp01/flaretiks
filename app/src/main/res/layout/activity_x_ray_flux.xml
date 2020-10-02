@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".presentation.xrayFlux.XRayFluxActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.synnapps.carouselview.CarouselView
+            android:id="@+id/carousel_x_ray"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:radius="6dp"
+            app:slideInterval="3000"
+            app:fillColor="#FFF"
+            app:pageColor="#000"
+            app:strokeColor="#FF777777"
+            app:strokeWidth="1dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_solar_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Últimos eventos de\nRaio-X 1-8Å\nGOES-16"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carousel_x_ray"/>
+
+        <TextView
+            android:id="@+id/tv_actually"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atualmente\n04/05/2020 01:30:00\nClassificação A0.0\nProporção 0.567"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_solar_data"/>
+
+        <TextView
+            android:id="@+id/tv_begin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Início\n01/05/2020 14:30:00\nClassificação A1.9"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_actually"/>
+
+        <TextView
+            android:id="@+id/tv_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Máxima\n01/05/2020 14:36:00\nClassificação B2.6\nProporção 8.4e-5 J m-2"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_begin"/>
+
+        <TextView
+            android:id="@+id/tv_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fim\n01/05/2020 14:40:00\nClassificação A9.7"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_max"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
