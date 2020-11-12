@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">flaretiks</string>
     <string name="solar_data_text">Dados Solares</string>
+    <string name="error_401">Error 401</string>
+    <string name="unavailable_server">Servidor indisponível</string>
+    <string name="fatal_error">Erro fatal</string>
 </resources>

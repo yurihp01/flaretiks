@@ -12,14 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.synnapps.carouselview.CarouselView
+        <ImageView
             android:id="@+id/carousel_x_ray"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:radius="6dp"
-            app:slideInterval="3000"
-            app:fillColor="#FFF"
-            app:pageColor="#000"
             app:strokeColor="#FF777777"
             app:strokeWidth="1dp"
             android:layout_marginTop="24dp"
