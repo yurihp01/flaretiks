@@ -5,6 +5,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.magneticsFields.MagneticsFieldsActivity">
+    tools:context="com.inpe.inpe.presentation.magneticsFields.MagneticsFieldsActivity">
+
+    <TextView
+        android:id="@+id/tv_report_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data do Relatório:"
+        android:textSize="20sp"
+        android:layout_marginStart="24sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rg_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_report_data">
+
+        <RadioButton
+            android:id="@+id/rb_actual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:checked="true"
+            android:text="Hoje"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rb_select_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecionar Datas"
+            android:textSize="20sp"/>
+    </RadioGroup>
+
+    <include
+        android:id="@+id/layout_dates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:visibility="gone"
+        layout="@layout/view_jsoc_dates"
+        app:layout_constraintTop_toBottomOf="@id/rg_date"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_magnetic_features"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione as características magnéticas"
+        android:textSize="20sp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_dates" />
+
+    <EditText
+        android:id="@+id/text_input_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Pressione Enter para inserir cada um"
+        app:layout_constraintTop_toBottomOf="@id/tv_magnetic_features"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintTop_toBottomOf="@id/text_input_field"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_create_chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#6aa5e9"
+        android:text="Gerar Gráficos"
+        app:layout_constraintTop_toBottomOf="@id/chip_group" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
