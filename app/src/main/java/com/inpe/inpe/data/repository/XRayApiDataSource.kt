@@ -3,8 +3,10 @@ package com.inpe.inpe.data.repository
 import com.inpe.inpe.data.model.XRay
 import com.inpe.inpe.data.model.XRayLatestEvent
 import com.inpe.inpe.data.service.ApiService
+import com.inpe.inpe.data.service.SolarResult
 import com.inpe.inpe.data.service.XRayLatestEventResult
 import com.inpe.inpe.data.service.XrayResult
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -65,6 +67,41 @@ class XRayApiDataSource : XRayRepository {
                 }
             }
 
+        })
+    }
+
+    override fun getUrl(solarResultCallback: (result: SolarResult) -> Unit) {
+        ApiService.service.getSolarUrl().enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                when {
+                    response.isSuccessful -> {
+                        response.body()?.let {
+                            val array = arrayListOf<String>()
+                            var html = it.string()
+
+                            // estou fazendo com os primeiros valores do dia com imagem 512.
+                            // Para carregar os ultimos demandará muito processamento.
+
+                            while (array.size < 10) {
+                                val url = html.replaceBefore("20210314", "").replaceAfter(".jpg", "")
+
+                                if (url.contains("_512")) {
+                                    array.add(url)
+                                }
+
+                                html = html.replaceBefore(url, "").replace(url, "")
+                            }
+
+                            solarResultCallback(SolarResult.Success(array))
+                        }
+                    }
+                    else -> solarResultCallback(SolarResult.Error(response.code()))
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                solarResultCallback(SolarResult.ServerError)
+            }
         })
     }
 }

@@ -21,7 +21,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class XRayFluxViewModel(val dataSource: XRayRepository) : ViewModel() {
+class XRayFluxViewModel(private val dataSource: XRayRepository) : ViewModel() {
     val xRaysLiveData: MutableLiveData<List<XRay>> = MutableLiveData()
     val xRaysLatestEventData: MutableLiveData<List<XRayLatestEvent>> = MutableLiveData()
     private val viewFlipperLiveData: MutableLiveData<Pair<Int, Int?>> = MutableLiveData()

@@ -2,6 +2,7 @@ package com.inpe.inpe.data.service
 
 import com.inpe.inpe.data.model.XRay
 import com.inpe.inpe.data.model.XRayLatestEvent
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,4 +13,7 @@ interface XRayServices {
 
         @GET("xray-flares-latest.json")
         fun getLatestXrayEvent() : Call<List<XRayLatestEvent>>
+
+        @GET("14")
+        fun getSolarUrl() : Call<ResponseBody>
 }
